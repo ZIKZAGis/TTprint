@@ -1,0 +1,157 @@
+.header {
+  width: 100%;
+  background-color: $black;
+  color: $default-white;
+
+  a {
+    color: $default-white;
+    font-size: 18px;
+
+    &:hover,
+    &:focus-visible {
+      opacity: 0.6;
+      color: $blue;
+    }
+
+    &:active {
+      opacity: 0.3;
+    }
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+}
+
+.header__navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.header__logo {
+  a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+}
+
+.header__nav-list {
+  display: flex;
+
+  a {
+    display: block;
+    font-weight: 600;
+    padding: 10px 15px;
+    text-transform: uppercase;
+  }
+}
+
+.header__nav-toggle {
+  display: none;
+  position: relative;
+  width: 50px;
+  height: 30px;
+  padding: 0;
+  background-color: transparent;
+  border: none;
+
+  span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    border-radius: 2px;
+    background-color: $default-white;
+    transition: all ease 0.3s;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background-color: $default-white;
+      border-radius: 2px;
+      transition: all ease 0.3s;
+    }
+
+    &::before {
+      top: 0;
+    }
+
+    &::after {
+      bottom: 0;
+    }
+  }
+
+  &:active {
+    opacity: 0.3;
+
+    span {
+      background-color: $blue;
+
+      &::before,
+      &::after {
+        background-color: $blue;
+      }
+    }
+  }
+}
+
+@include vp-1024 {
+  .header__navigation {
+    position: relative;
+  }
+
+  .header__nav-toggle {
+    display: block;
+  }
+
+  .header__nav-toggle--opened {
+    span {
+      position: relative;
+      background-color: transparent;
+
+      &::after {
+        transform: rotate(45deg);
+      }
+
+      &::before {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  .header__nav-toggle--closed + .header__nav-list {
+    display: none;
+  }
+
+  .header__nav-toggle--opened + .header__nav-list {
+    position: absolute;
+    top: 77px;
+    left: -30px;
+    width: 100vw;
+    min-width: 320px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    background-color: $black;
+
+    a {
+      padding: 15px;
+      border-top: 1px solid rgba($color: #ffffff, $alpha: 0.3);
+    }
+  }
+}
+
+@include vp-768 {
+  .header__nav-toggle--opened + .header__nav-list {
+    left: -20px;
+  }
+}
