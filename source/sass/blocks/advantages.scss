@@ -1,0 +1,40 @@
+.advantages__list {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.advantages__item {
+  position: relative;
+  padding: 50px 15px 15px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: no-repeat center / contain url("../img/ico.png");
+  }
+}
+
+@include vp-768 {
+  .advantages__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .advantages__item {
+    padding: 50px 0 0;
+
+    h3 {
+      font-size: 16px;
+    }
+  }
+}
