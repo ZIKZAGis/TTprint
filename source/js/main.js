@@ -1,4 +1,5 @@
 import {renderText} from './render-title.js';
+import './swiper.js';
 
 renderText();
 
