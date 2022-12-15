@@ -25,14 +25,14 @@
     left: 0;
     top: 0;
     display: block;
-    font-size: calc(7px + 10 * (100vw / 1024));
+    font-size: 18px;
     color: $default-white;
     width: 100%;
     z-index: 1;
     margin: 0;
     padding: 15px;
     background-color: rgba($color: #000000, $alpha: 0.6);
-    transition: all ease 0.2s;
+    transition: $animation;
   }
 }
 
@@ -51,7 +51,7 @@
   width: 100%;
   height: 100%;
   bottom: -100%;
-  transition: all ease 0.2s;
+  transition: $animation;
   padding: 15px;
   background-color: rgba($color: #000000, $alpha: 0.6);
   border-radius: 10px;
@@ -96,7 +96,7 @@
 
   .products__item {
     h3 {
-      font-size: calc(10px + 10 * (100vw / 1024));
+      font-size: 14px;
     }
   }
 }

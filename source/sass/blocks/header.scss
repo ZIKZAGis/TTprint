@@ -66,7 +66,7 @@
     height: 4px;
     border-radius: 2px;
     background-color: $default-white;
-    transition: all ease 0.3s;
+    transition: $animation;
 
     &::before,
     &::after {
@@ -78,7 +78,7 @@
       height: 4px;
       background-color: $default-white;
       border-radius: 2px;
-      transition: all ease 0.3s;
+      transition: $animation;
     }
 
     &::before {
