@@ -1,14 +1,16 @@
-const priceItems = document.querySelectorAll('.price__item');
-const priceList = document.querySelector('.price__list');
+const accardion = () => {
+  const linksContainer = document.querySelector('.price__list');
+  const listItem = document.querySelectorAll('.price__item h3');
 
-
-priceList.addEventListener('click', (evt) => {
-  priceItems.forEach((elem) => {
-    elem.classList.remove('price__item--opened');
+  linksContainer.addEventListener('click', (e) => {
+    listItem.forEach((elem) => {
+      if (e.target === elem) {
+        elem.parentNode.classList.toggle('price__item--opened');
+      } else {
+        elem.parentNode.classList.remove('price__item--opened');
+      }
+    });
   });
+};
 
-  if (evt.target.classList.contains('price__item')) {
-    evt.target.classList.add('price__item--opened');
-  }
-});
-
+accardion();
